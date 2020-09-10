@@ -6,7 +6,7 @@
     depth: 1
     version: "{{ BUILD }}"
 
-- name: Prometheus MongoDB Exporter
+- name: Build MongoDB Exporter Docker Image
   docker_image:
     path: "/home/{{default_user}}/mongodb_exporter"
     name: "devops/mongodb_exporter"
