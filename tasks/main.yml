@@ -1,0 +1,30 @@
+---
+- name: Git Clone percona/mongodb_exporter
+  git:
+    repo: "https://github.com/percona/mongodb_exporter.git"
+    dest: "./mongodb_exporter"
+    depth: 1
+    version: "{{ BUILD }}"
+
+- name: Prometheus MongoDB Exporter
+  docker_image:
+    path: "./mongodb_exporter"
+    name: "devops/mongodb_exporter"
+    tag: "{{ BUILD }}"
+    force: "true"
+    push: "false"
+    pull: "true"
+
+- name: MongoDB Exporter
+  docker_container:
+    name: "mongo-exporter"
+    image: "devops/mongodb_exporter:{{ BUILD }}"
+    pull: "no"
+    recreate: "yes"
+    env:
+      MONGODB_URI: "{{ MONGO_URI }}"
+      HTTP_AUTH: "{{ MONGO_USERNAME }}:{{ MONGO_PASSWORD }}"
+    state: "started"
+    restart_policy: "unless-stopped"
+    published_ports:
+      - "0.0.0.0:9216:9216"

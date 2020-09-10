@@ -1,0 +1,6 @@
+---
+default_user: 'ubuntu'
+BUILD: 'v0.11.1'
+MONGO_URI: 'mongodb://localhost:27017'
+MONGO_USERNAME: 'root'
+MONGO_PASSWORD: 'Pa$$w0rd'
