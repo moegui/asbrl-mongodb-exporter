@@ -22,8 +22,7 @@
     pull: "no"
     recreate: "yes"
     env:
-      MONGODB_URI: "{{ MONGO_URI }}"
-      HTTP_AUTH: "{{ MONGO_USERNAME }}:{{ MONGO_PASSWORD }}"
+      MONGODB_URI: "mongodb://{{ MONGO_USERNAME }}:{{ MONGO_PASSWORD}}@{{ MONGO_SERVER }}:{{ MONGO_PORT }}'"
     state: "started"
     restart_policy: "unless-stopped"
     published_ports:
