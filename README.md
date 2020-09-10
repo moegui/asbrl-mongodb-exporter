@@ -1,7 +1,7 @@
 ASBRL-MONGODB-EXPORTER
 =========
 
-Deploy a MongoDB-Exporter as a Docker container.
+Deploy a MongoDB-Exporter (percona) as a Docker container.
 
 Requirements
 ------------
@@ -14,14 +14,15 @@ Role Variables
 
 - default_user: 'ubuntu'
 - BUILD: 'v0.11.1'
-- MONGO_URI: 'mongodb://localhost:27017'
+- MONGO_HOST: 'localhost'
+- MONGO_PORT: 27017
 - MONGO_USERNAME: ''
 - MONGO_PASSWORD: ''
 
 Dependencies
 ------------
 
-None
+https://github.com/percona/mongodb_exporter
 
 Example Playbook
 ----------------
@@ -31,7 +32,7 @@ Example Playbook
       include_role:
         name: asbrl-mongodb-exporter
       vars:
-        MONGO_URI: "{{ MONGO_EXPORTER_URI }}"
+        MONGO_HOST: "{{ MONGO_HOST }}"
         MONGO_USERNAME: "{{ MONGO_ROOT_USERNAME }}"
         MONGO_PASSWORD: "{{ MONGO_ROOT_PASSWORD }}"
       tags:
