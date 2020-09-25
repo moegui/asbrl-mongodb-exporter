@@ -1,6 +1,6 @@
 ---
 default_user: 'ubuntu'
-BUILD: 'v0.11.1'
+BUILD: 'v0.11.2'
 MONGO_HOST: 'localhost'
 MONGO_PORT: 27017
 MONGO_USERNAME: ''
