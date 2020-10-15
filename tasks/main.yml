@@ -17,13 +17,16 @@
 
 - name: MongoDB Exporter
   docker_container:
-    name: "mongo-exporter"
+    name: "{{ CONTAINER_NAME }}"
     image: "devops/mongodb_exporter:{{ BUILD }}"
     pull: "no"
     recreate: "yes"
     env:
       MONGODB_URI: "mongodb://{{ MONGO_USERNAME }}:{{ MONGO_PASSWORD }}@{{ MONGO_HOST }}:{{ MONGO_PORT }}"
-    state: "started"
+    cpu_period: "{{ DOCKER_CPU_PERIOD }}"
+    cpu_quota: "{{ DOCKER_CPU_QUOTA }}"
+    memory: "{{ DOCKER_MEMORY }}"
+    state: "{{ CONTAINER_STATE }}"
     restart_policy: "unless-stopped"
     published_ports:
       - "0.0.0.0:9216:9216"

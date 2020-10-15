@@ -18,6 +18,11 @@ Role Variables
 - MONGO_PORT: 27017
 - MONGO_USERNAME: ''
 - MONGO_PASSWORD: ''
+- CONTAINER_NAME: "mongo-exporter"
+- DOCKER_CPU_PERIOD: 0
+- DOCKER_CPU_QUOTA: 0
+- DOCKER_MEMORY: 0
+- CONTAINER_STATE: 'started'
 
 Dependencies
 ------------
