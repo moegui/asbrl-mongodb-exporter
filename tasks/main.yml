@@ -2,13 +2,13 @@
 - name: Git Clone percona/mongodb_exporter
   git:
     repo: "https://github.com/percona/mongodb_exporter.git"
-    dest: "/home/{{default_user}}/mongodb_exporter"
+    dest: "/home/{{ default_user }}/mongodb_exporter"
     depth: 1
     version: "{{ BUILD }}"
 
 - name: Build MongoDB Exporter Docker Image
   docker_image:
-    path: "/home/{{default_user}}/mongodb_exporter"
+    path: "/home/{{ default_user }}/mongodb_exporter"
     name: "devops/mongodb_exporter"
     tag: "{{ BUILD }}"
     force: "true"
