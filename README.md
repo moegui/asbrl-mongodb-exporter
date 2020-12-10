@@ -41,7 +41,7 @@ Example Playbook
         MONGO_USERNAME: "{{ MONGO_ROOT_USERNAME }}"
         MONGO_PASSWORD: "{{ MONGO_ROOT_PASSWORD }}"
       tags:
-        - mongo-exporter
+      - asbrl-mongodb-exporter
 
 License
 -------

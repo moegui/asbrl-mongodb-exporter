@@ -5,6 +5,8 @@
     dest: "/home/{{ default_user }}/mongodb_exporter"
     depth: 1
     version: "{{ BUILD }}"
+  tags:
+  - asbrl-mongodb-exporter
 
 - name: Build MongoDB Exporter Docker Image
   docker_image:
@@ -14,6 +16,8 @@
     force: "true"
     push: "false"
     pull: "true"
+  tags:
+  - asbrl-mongodb-exporter
 
 - name: MongoDB Exporter
   docker_container:
@@ -30,3 +34,5 @@
     restart_policy: "unless-stopped"
     published_ports:
       - "0.0.0.0:9216:9216"
+  tags:
+  - asbrl-mongodb-exporter
